@@ -14,6 +14,10 @@ class UsersController < ApplicationController
     @books = @user.books
   end
 
+  def index
+    @users = User.all
+  end
+
   private
 
   def user_params
