@@ -1,0 +1,9 @@
+<h1>Books</h1>
+<p>Title</p>
+<p>Option</p>
+<% @books.each do |book| %>
+  <div>
+   <p><%= book.title %></p>
+   <p><%= book.body %></p>
+  </div>
+<% end %>
