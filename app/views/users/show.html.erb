@@ -3,6 +3,7 @@
   <%= image_tag @user.get_profile_image(100,100) %>
   <strong>name: <%= @user.name %></strong>
   <strong>introduction: <%= @user.introduction %></strong>
+  <%= link_to "Edit", edit_user_path(@user.id) %>
 </div>
 
 <% @books.each do |book| %>
