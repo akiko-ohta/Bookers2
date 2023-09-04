@@ -1,7 +1,8 @@
 <h1>Users</h1>
 <% @users.each do |user| %>
   <div>
-   <%= image_tag @user.get_profile_image(50,50) %>
-  <p><%= @user.name %></p>
+
+   <%= image_tag user.get_profile_image(50,50) %>
+  <p><%= user.name %></p>
   </div>
 <% end %>
