@@ -12,9 +12,7 @@ class BooksController < ApplicationController
       flash[:notice] = "You have created book successfully."
       redirect_to book_path(@book.id)
     else
-      @book = Book.new
-      @books = Book.all
-      render index
+      redirect_to action: :index
     end
   end
 
