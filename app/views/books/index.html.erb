@@ -1,4 +1,13 @@
-<%= render 'users/userinfo', user: @book.user %>
+<% if @book.errors.any? %>
+  <%= @book.errors.count %>errors prohibited this obj from being saved:
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= render 'users/userinfo', user: current_user %>
 <%= render 'new', book: @book %>
 
 <p>Title</p>

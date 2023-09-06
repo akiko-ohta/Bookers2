@@ -3,11 +3,7 @@
 </div>
 
 <h1>User info</h1>
-<div>
-  <%= image_tag @user.get_profile_image(100,100) %>
-  <strong>name: <%= @user.name %></strong>
-  <strong>introduction: <%= @user.introduction %></strong>
-</div>
+  <%= render 'userinfo', user: @user %>
   <%= render 'books/new', book: @book %>
 
 <% @books.each do |book| %>
