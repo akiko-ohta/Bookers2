@@ -1,4 +1,6 @@
-<h1>Books</h1>
+<%= render 'users/userinfo', user: @book.user %>
+<%= render 'new', book: @book %>
+
 <p>Title</p>
 <p>Option</p>
 <% @books.each do |book| %>
