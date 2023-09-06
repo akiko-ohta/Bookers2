@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Bookers2</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,35 +11,48 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <header>
-      <% if user_signed_in? %>
-        <li>
-          <%= link_to "Home", user_path(current_user) %>
-        </li>
-        <li>
-          <%= link_to "Users", users_path %>
-        </li>
-        <li>
-          <%= link_to "Books", books_path %>
-        </li>
-        <li>
-          <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-        </li>
-      <% else %>
-        <li>
-          <%= link_to "Home", root_path %>
-        </li>
-        <li>
-          <%= link_to "About", about_path %>
-        </li>
-        <li>
-          <%= link_to "Sign up", new_user_registration_path %>
-        </li>
-        <li>
-          <%= link_to "Log in", new_user_session_path %>
-        </li>
-      <% end %>
+  <body class="d-flex flex-column vh-100">
+    <header class="shadow-sm">
+      <nav class="navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="/">Bookers</a>
+          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"
+                  aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav justify-content-end">
+            <% if user_signed_in? %>
+              <li class="nav-item">
+                <%= link_to "Home", user_path(current_user), class: 'navlink' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Users", users_path, class: 'navlink' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Books", books_path, class: 'navlink' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'navlink' %>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to "Home", root_path, class: 'navlink' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "About", about_path, class: 'navlink' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Sign up", new_user_registration_path, class: 'navlink' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Log in", new_user_session_path, class: 'navlink' %>
+              </li>
+            <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </header>
 
     <% flash.each do |message_type, message| %>
@@ -48,6 +61,6 @@
 
     <%= yield %>
 
-    <p>CopyRight Infratop.inc</p>
+    <p class="text-center m-5">CopyRight Infratop.inc</p>
   </body>
 </html>
