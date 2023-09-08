@@ -2,10 +2,13 @@
   <%= flash[:notice] %>
 </div>
 
-<h1>User info</h1>
-  <%= render 'userinfo', user: @user %>
-  <%= render 'books/new', book: @book %>
-
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <%= render 'userinfo', user: @user %>
+    </div>
+    <div class="col">
+      <h1>User info</h1>
 <% @books.each do |book| %>
 <div>
   <%= image_tag book.user.get_profile_image(70,70) %>
@@ -13,3 +16,10 @@
   <%= book.body %>
 </div>
 <% end %>
+
+    </div>
+  </div>
+  <div class="row">
+<%= render 'books/new', book: @book %>
+</div>
+</div>
