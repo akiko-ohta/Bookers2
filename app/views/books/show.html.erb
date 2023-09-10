@@ -1,14 +1,43 @@
 <div>
   <%= flash[:notice] %>
 </div>
-
-<%= render 'users/userinfo', user: @booki.user %>
-<%= render 'new', book: @book %>
-
-<h1>Book detail</h1>
-<p><%= @booki.title %></p>
-<p><%= @booki.body %></p>
-<% if @booki.user == current_user %>
-  <%= link_to "Edit", edit_book_path(@booki.id) %>
-  <%= link_to "Destroy", book_path(@booki), method: :delete, "data-confirm" => "本当に消しますか？" %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3">
+      <div class="row">
+        <div class="col">
+          <%= render 'users/userinfo', user: @booki.user %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <%= render 'new', book: @book %>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-8 offset-md-1">
+      <h2>Book detail</h2>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td><%= image_tag @booki.user.get_profile_image(100,100) %></td>
+            <td><%= @booki.title %></td>
+            <td><%= @booki.body %></td>
+            <% if @booki.user == current_user %>
+            <td>
+              <%= link_to edit_book_path(@booki.id), class: 'btn text-decoration-none text-light btn-success' do %>
+                  <span>Edit</span>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to book_path(@booki), method: :delete, "data-confirm" => "本当に消しますか？", class: 'btn text-decoration-none text-light btn-danger' do %>
+              <span>Destroy</span>
+              <% end %>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
