@@ -2,13 +2,13 @@
   <%= flash[:notice] %>
 </div>
 
-<%= render 'users/userinfo', user: @bookdt.user %>
+<%= render 'users/userinfo', user: @booki.user %>
 <%= render 'new', book: @book %>
 
 <h1>Book detail</h1>
-<p><%= @bookdt.title %></p>
-<p><%= @bookdt.body %></p>
-<% if @bookdt.user == current_user %>
-  <%= link_to "Edit", edit_book_path(@bookdt.id) %>
-  <%= link_to "Destroy", book_path(@bookdt), method: :delete, "data-confirm" => "本当に消しますか？" %>
+<p><%= @booki.title %></p>
+<p><%= @booki.body %></p>
+<% if @booki.user == current_user %>
+  <%= link_to "Edit", edit_book_path(@booki.id) %>
+  <%= link_to "Destroy", book_path(@booki), method: :delete, "data-confirm" => "本当に消しますか？" %>
 <% end %>

@@ -12,7 +12,7 @@ class BooksController < ApplicationController
       flash[:notice] = "You have created book successfully."
       redirect_to book_path(@book.id)
     else
-      redirect_to action: :index
+      redirect_to books_path
     end
   end
 
@@ -22,7 +22,7 @@ class BooksController < ApplicationController
   end
 
   def show
-    @bookdt = Book.find(params[:id])
+    @booki = Book.find(params[:id])
   end
 
   def edit

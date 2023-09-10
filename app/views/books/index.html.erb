@@ -10,8 +10,6 @@
 <%= render 'users/userinfo', user: current_user %>
 <%= render 'new', book: @book %>
 
-<p>Title</p>
-<p>Option</p>
 <% @books.each do |book| %>
   <div>
    <p><%= book.title %></p>
