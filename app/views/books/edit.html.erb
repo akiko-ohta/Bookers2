@@ -1,21 +1,28 @@
-<h1>Editing Book</h1>
-<% if @book.errors.any? %>
-  <%= @book.errors.count %>errors prohibited this obj from being saved:
-  <ul>
-    <% @book.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 coloffset-lg-3">
+      <h2>Editing Book</h2>
+        <% if @book.errors.any? %>
+        <h3><%= @book.errors.count %>errors prohibited this obj from being saved:</h3>
+        <ul>
+          <% @book.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+         </ul>
+      <% end %>
+    <div class="form-group">
+    <%= form_with model: @book do |f| %>
+      <p>Title</p>
+      <%= f.text_field :title, class: 'form-control' %>
+      <p>Opinion</p>
+      <%= f.text_area :body, class: 'form-control' %>
+      <%= f.submit 'Updatte book', class: 'btn btn-success text-decoration-none text-light' %>
     <% end %>
-  </ul>
-<% end %>
-
-<%= form_with model: @book do |f| %>
-  <p>Title</p>
-  <%= f.text_field :title %>
-  <p>Option</p>
-  <%= f.text_area :body %>
-  <%= f.submit 'Update Book' %>
-<% end %>
-
+</div>
 <%= link_to "Show", book_path(@book.id) %>
 │
 <%= link_to "Back", books_path %>
+</div>
+    </div>
+  </div>
+</div>
