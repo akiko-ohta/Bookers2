@@ -2,10 +2,10 @@
 
 <div class="form-group">
     <%= form_with model: book do |f| %>
-      <p>Title</p>
-      <%= f.text_field :title, class: 'form-control' %>
-      <p>Opinion</p>
-      <%= f.text_area :body, class: 'form-control' %>
-      <%= f.submit 'Create book', class: 'btn btn-success text-decoration-none text-light' %>
+      <label>Title</label>
+        <%= f.text_field :title, class: 'form-control mb-3' %>
+      <label>Opinion</label>
+        <%= f.text_area :body, class: 'form-control mb-3' %>
+        <%= f.submit 'Create Book', class: 'btn btn-success text-decoration-none text-light' %>
     <% end %>
 </div>

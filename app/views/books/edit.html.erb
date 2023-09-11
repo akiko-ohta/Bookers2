@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-6 coloffset-lg-3">
+    <div class="col-md-6 offset-md-3">
       <h2>Editing Book</h2>
         <% if @book.errors.any? %>
         <h3><%= @book.errors.count %>errors prohibited this obj from being saved:</h3>
@@ -12,11 +12,11 @@
       <% end %>
     <div class="form-group">
     <%= form_with model: @book do |f| %>
-      <p>Title</p>
-      <%= f.text_field :title, class: 'form-control' %>
-      <p>Opinion</p>
-      <%= f.text_area :body, class: 'form-control' %>
-      <%= f.submit 'Updatte book', class: 'btn btn-success text-decoration-none text-light' %>
+      <label>Title</label>
+        <%= f.text_field :title, class: 'form-control mb-3' %>
+      <label>Opinion</label>
+        <%= f.text_area :body, class: 'form-control mb-3' %>
+        <%= f.submit 'Update Book', class: 'btn btn-success text-decoration-none text-light' %>
     <% end %>
 </div>
 <%= link_to "Show", book_path(@book.id) %>
