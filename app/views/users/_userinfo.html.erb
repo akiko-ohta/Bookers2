@@ -10,8 +10,6 @@
     <td><strong><%= user.introduction %></strong></td>
   </tr>
 </table>
-<% if user == current_user %>
-    <%= link_to edit_user_path(user.id), class: 'btn btn-outline-dark btn-block' do %>
-      <i class="fa-solid fa-user-cog"></i>
-    <% end %>
+<%= link_to edit_user_path(user.id), class: 'btn btn-outline-dark btn-block' do %>
+  <i class="fa-solid fa-user-cog"></i>
 <% end %>
