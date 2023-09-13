@@ -15,7 +15,7 @@
         <label>Name</label>
           <%= f.text_field :name, class: 'form-control mb-3' %>
         <label>Image</label>
-          <%= f.file_field :profile_image, class: 'form-control-file mb-3' %>
+          <%= f.file_field :profile_image, accept: "image/*", class: 'form-control-file mb-3' %>
         <labe>Introduction</label>
           <%= f.text_area :introduction, class: 'form-control mb-3' %>
           <%= f.submit "Update User", class: 'btn btn-secondary text-decoration-none text-light' %>
